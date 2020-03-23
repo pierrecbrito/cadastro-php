@@ -1,0 +1,16 @@
+.formulario__botao {
+    background-color: #1976D2;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    color: #FFFFFF;
+    display: block;
+    padding: 0.8em 5em;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.formulario__botao:hover {
+    transform: translateY(5px);
+    box-shadow: none;
+}
