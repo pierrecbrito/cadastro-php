@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,47 +23,68 @@
 </head>
 <body>
     <main class="container">
+        <?php
+            $erros = [];
+            $pessoa = null;
+
+            if(count($_POST) > 0) {
+                require_once 'pessoaFactory.php';
+
+                $processo = PessoaFactory::buildPessoa();
+
+                if(is_array($processo)) 
+                    $erros = $processo;
+                else
+                    $pessoa = $processo;
+
+            }
+
+        ?>
         <h1 class="container__titulo">Cadastro Simples com PHP</h1>
         <h2 class="container__subtitulo">Todos os campos são obrigatórios!</h2>
    
-        <form action="" class="formulario">
+        <form action="#" method="POST" class="formulario">
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__nome" class="formulario__etiqueta">Nome:</label>
-                    <input id="campo__nome" type="text" class="formulario__campo">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <input id="campo__nome" type="text" class="formulario__campo" name="nome" value="<?= $_POST['nome'] ?? '' ?>">
+                    
+                    <?php if(isset($erros['nome'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['nome']?></div>
+                    <?php endif ?>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__email" class="formulario__etiqueta">Email:</label>
-                    <input id="campo__email" type="email" class="formulario__campo">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <input id="campo__email" type="email" class="formulario__campo" name="email">
+                    <?php if(isset($erros['email'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['email']?></div>
+                    <?php endif ?>
                 </div>
             </div>
 
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__nascimento" class="formulario__etiqueta">Data de Nascimento:</label>
-                    <input id="campo__nascimento" type="text" class="formulario__campo">
+                    <input id="campo__nascimento" type="text" class="formulario__campo" name="nascimento">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             
                 <div class="formulario__wrapper">
                     <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
-                    <input id="campo__cpf" type="email" class="formulario__campo">
+                    <input id="campo__cpf" type="text" class="formulario__campo" name="cpf">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             </div>
-          
-
+        
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__whatsapp" class="formulario__etiqueta">Whatsapp:</label>
-                    <input id="campo__whatsapp" type="text" class="formulario__campo">
+                    <input id="campo__whatsapp" type="text" class="formulario__campo" name="whatsapp">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__salario" class="formulario__etiqueta">Salário:</label>
-                    <input id="campo__salario" type="text" class="formulario__campo">
+                    <input id="campo__salario" type="text" class="formulario__campo" name="salario">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             </div>
@@ -125,7 +147,7 @@
         $(document).ready(function(){
             $('#campo__cpf').mask('000.000.000-00', {reverse: true});
             $('#campo__whatsapp').mask('(00) 00000-0000');
-            $('#campo__salario').mask('000.000.000.000.000,00', {reverse: true});
+            $('#campo__salario').mask('000000000,00', {reverse: true});
             $('#campo__nascimento').mask('00/00/0000');
             $('#campo__cep').mask('00000-000');
         });
