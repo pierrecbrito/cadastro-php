@@ -1,5 +1,6 @@
 .formulario__mensagem {
     color: #EE050B;
+    display: none;
     font-size: 0.9em;
     padding: 5px;
 }

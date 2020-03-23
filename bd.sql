@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS cadastro_php;
+CREATE DATABASE cadastro_php;
