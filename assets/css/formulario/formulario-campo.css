@@ -1,0 +1,12 @@
+.formulario__campo {
+    display: block;
+    border: none;
+    border-bottom: 2px solid #727272;
+    width: 100%;
+    padding: 0.8em 0.5em;
+}
+
+.formulario__campo:focus {
+    outline: none;
+    border-bottom: 2px solid #1976D2;
+}
