@@ -41,5 +41,13 @@
             </div>
         </form>
     </main>
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#campo__cpf').mask('000.000.000-00', {reverse: true});
+        });
+    </script>
 </body>
 </html>
