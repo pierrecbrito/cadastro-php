@@ -55,7 +55,7 @@ $pessoa = null;
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__email" class="formulario__etiqueta">Email:</label>
-                    <input id="campo__email" type="email" class="formulario__campo" name="email">
+                    <input id="campo__email" type="email" class="formulario__campo" name="email" value="<?= $_POST['email'] ?? '' ?>">
                     <?php if(isset($erros['email'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['email']?></div>
                     <?php endif ?>
@@ -65,7 +65,7 @@ $pessoa = null;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__nascimento" class="formulario__etiqueta">Data de Nascimento:</label>
-                    <input id="campo__nascimento" type="text" class="formulario__campo" name="nascimento">
+                    <input id="campo__nascimento" type="text" class="formulario__campo" name="nascimento" value="<?= $_POST['nascimento'] ?? '' ?>">
                 
                     <?php if(isset($erros['nascimento'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['nascimento']?></div>
@@ -74,7 +74,7 @@ $pessoa = null;
             
                 <div class="formulario__wrapper">
                     <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
-                    <input id="campo__cpf" type="text" class="formulario__campo" name="cpf">
+                    <input id="campo__cpf" type="text" class="formulario__campo" name="cpf" value="<?= $_POST['cpf'] ?? '' ?>">
                     <?php if(isset($erros['cpf'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['cpf']?></div>
                     <?php endif ?>
@@ -84,7 +84,7 @@ $pessoa = null;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__whatsapp" class="formulario__etiqueta">Whatsapp:</label>
-                    <input id="campo__whatsapp" type="text" class="formulario__campo" name="whatsapp">
+                    <input id="campo__whatsapp" type="text" class="formulario__campo" name="whatsapp" value="<?= $_POST['whatsapp'] ?? '' ?>">
 
                     <?php if(isset($erros['whatsapp'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['whatsapp']?></div>
@@ -92,7 +92,7 @@ $pessoa = null;
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__salario" class="formulario__etiqueta">Salário:</label>
-                    <input id="campo__salario" type="text" class="formulario__campo" name="salario">
+                    <input id="campo__salario" type="text" class="formulario__campo" name="salario" value="<?= $_POST['salario'] ?? '' ?>">
 
                     <?php if(isset($erros['salario'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['salario']?></div>
