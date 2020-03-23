@@ -39,17 +39,20 @@
                 </div>
             </div>
 
-            <div class="formulario__wrapper">
-                <label for="campo__nascimento" class="formulario__etiqueta">Data de Nascimento:</label>
-                <input id="campo__nascimento" type="text" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+            <div class="formulario__row">
+                <div class="formulario__wrapper">
+                    <label for="campo__nascimento" class="formulario__etiqueta">Data de Nascimento:</label>
+                    <input id="campo__nascimento" type="text" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+            
+                <div class="formulario__wrapper">
+                    <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
+                    <input id="campo__cpf" type="email" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
             </div>
-           
-            <div class="formulario__wrapper">
-                <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
-                <input id="campo__cpf" type="email" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
+          
 
             <div class="formulario__row">
                 <div class="formulario__wrapper">
@@ -64,47 +67,54 @@
                 </div>
             </div>
             
-          
-            <div class="formulario__wrapper">
-                <label for="campo__cep" class="formulario__etiqueta">CEP:</label>
-                <input id="campo__cep" type="text" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__estado" class="formulario__etiqueta">Estado:</label>
-                <select name="" id="campo__estado" class="formulario__campo">
-                    <option value="1">RN</option>
-                    <option value="2">Brasília</option>
-                </select>
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__cidade" class="formulario__etiqueta">Cidade:</label>
-                <select name="" id="campo__cidade" class="formulario__campo">
-                    <option value="1">RN</option>
-                    <option value="2">Brasília</option>
-                </select>
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__bairro" class="formulario__etiqueta">Bairro:</label>
-                <select name="" id="campo__bairro" class="formulario__campo" disable='true'>
-                    <option value="1">RN</option>
-                    <option value="2">Brasília</option>
-                </select>
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__rua" class="formulario__etiqueta">Rua:</label>
-                <input id="campo__rua" type="text" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__numero" class="formulario__etiqueta">Número:</label>
-                <input id="campo__numero" type="number" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+            <div class="formulario__row">
+                <div class="formulario__wrapper">
+                    <label for="campo__cep" class="formulario__etiqueta">CEP:</label>
+                    <input id="campo__cep" type="text" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+                <div class="formulario__wrapper">
+                    <label for="campo__estado" class="formulario__etiqueta">Estado:</label>
+                    <select name="" id="campo__estado" class="formulario__campo">
+                        <option value="1">RN</option>
+                        <option value="2">Brasília</option>
+                    </select>
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
             </div>
 
+            <div class="formulario__row">
+                <div class="formulario__wrapper">
+                    <label for="campo__cidade" class="formulario__etiqueta">Cidade:</label>
+                    <select name="" id="campo__cidade" class="formulario__campo">
+                        <option value="1">RN</option>
+                        <option value="2">Brasília</option>
+                    </select>
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+                <div class="formulario__wrapper">
+                    <label for="campo__bairro" class="formulario__etiqueta">Bairro:</label>
+                    <select name="" id="campo__bairro" class="formulario__campo" disable='true'>
+                        <option value="1">RN</option>
+                        <option value="2">Brasília</option>
+                    </select>
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+            </div>
+            
+            <div class="formulario__row">
+                <div class="formulario__wrapper">
+                    <label for="campo__rua" class="formulario__etiqueta">Rua:</label>
+                    <input id="campo__rua" type="text" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+                <div class="formulario__wrapper">
+                    <label for="campo__numero" class="formulario__etiqueta">Número:</label>
+                    <input id="campo__numero" type="number" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+            </div>
+            
             <button class="formulario__botao">Salvar</button>
         </form>
     </main>
