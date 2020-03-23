@@ -1,4 +1,9 @@
 .container {
+    background-color: #FFFFFF;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    margin: 0 auto;
+    max-width: 1000px;
+    min-height: 100vh;
+    padding: 0.6em 2em;
     width: 100%;
-    max-width: 595px;
 }
