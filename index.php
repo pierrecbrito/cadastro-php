@@ -1,4 +1,21 @@
+<?php
+require_once 'config.php';
 
+$erros = [];
+$pessoa = null;
+
+    if(count($_POST) > 0) {
+        require_once 'pessoaFactory.php';
+
+        $processo = PessoaFactory::buildPessoa();
+
+        if(is_array($processo)) 
+            $erros = $processo;
+        else
+            $pessoa = $processo;
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,23 +40,6 @@
 </head>
 <body>
     <main class="container">
-        <?php
-            $erros = [];
-            $pessoa = null;
-
-            if(count($_POST) > 0) {
-                require_once 'pessoaFactory.php';
-
-                $processo = PessoaFactory::buildPessoa();
-
-                if(is_array($processo)) 
-                    $erros = $processo;
-                else
-                    $pessoa = $processo;
-
-            }
-
-        ?>
         <h1 class="container__titulo">Cadastro Simples com PHP</h1>
         <h2 class="container__subtitulo">Todos os campos são obrigatórios!</h2>
    
@@ -66,13 +66,18 @@
                 <div class="formulario__wrapper">
                     <label for="campo__nascimento" class="formulario__etiqueta">Data de Nascimento:</label>
                     <input id="campo__nascimento" type="text" class="formulario__campo" name="nascimento">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                
+                    <?php if(isset($erros['nascimento'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['nascimento']?></div>
+                    <?php endif ?>
                 </div>
             
                 <div class="formulario__wrapper">
                     <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
                     <input id="campo__cpf" type="text" class="formulario__campo" name="cpf">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <?php if(isset($erros['cpf'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['cpf']?></div>
+                    <?php endif ?>
                 </div>
             </div>
         
@@ -80,12 +85,18 @@
                 <div class="formulario__wrapper">
                     <label for="campo__whatsapp" class="formulario__etiqueta">Whatsapp:</label>
                     <input id="campo__whatsapp" type="text" class="formulario__campo" name="whatsapp">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+
+                    <?php if(isset($erros['whatsapp'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['whatsapp']?></div>
+                    <?php endif ?>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__salario" class="formulario__etiqueta">Salário:</label>
                     <input id="campo__salario" type="text" class="formulario__campo" name="salario">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+
+                    <?php if(isset($erros['salario'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['salario']?></div>
+                    <?php endif ?>
                 </div>
             </div>
             

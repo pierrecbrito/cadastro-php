@@ -1,6 +1,6 @@
 <?php
-
-require_once('pessoa.php');
+require_once 'config.php';
+require_once 'pessoa.php' ;
 
 /**
  *  Classe responsável pela validação e construção de uma pessoa
@@ -12,16 +12,17 @@ class PessoaFactory {
      */
     public static function buildPessoa() {
         $erros = [];
+        $data = null;
 
         if(!filter_input(INPUT_POST, 'nome')) {
             $erros['nome'] = 'O nome é obrigatório!';
         }
 
-        if(!filter_input(INPUT_POST, 'nascimento') ) {
+        if(filter_input(INPUT_POST, 'nascimento') ) {
             $data = DateTime::createFromFormat('d/m/Y', $_POST['nascimento']);
-    
+
             if(!$data) {
-                $erros[] = 'Atenção a data! O formato deve ser d/m/a.';
+                $erros['nascimento'] = 'Atenção a data! O formato deve ser d/m/a.';
             }
         }
 
@@ -34,7 +35,7 @@ class PessoaFactory {
         }
 
         if(!filter_input(INPUT_POST, 'whatsapp')) {
-            $erros['whatsapp'] = 'O CPF não foi informado!';
+            $erros['whatsapp'] = 'O Whatsapp não foi informado!';
         }
 
         $salarioConfig = ['options' => ['decimal' => ',']];
@@ -51,11 +52,12 @@ class PessoaFactory {
             echo "opaa2";
             $nome = $_POST['nome'];
             $email = $_POST['email'];
-            $nascimento = $_POST['nascimento'];
+            $nascimento = $data;
             $cpf = $_POST['cpf'];
             $whatsapp = $_POST['whatsapp'];
             $salario = $_POST['salario'];
             $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario);
+            echo $pessoa;
             return $pessoa;
         }
     }

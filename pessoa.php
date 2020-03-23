@@ -19,7 +19,7 @@ class Pessoa {
 
     public function __toString() {
         $out = "Pessoa {nome = {$this->nome}, email = {$this->email}}";
-        $out .= ", nascimento = {$this->nascimento}, cpf = {$this->cpf}";
+        $out .= ", nascimento = {$this->nascimento->format('d/m/Y')}, cpf = {$this->cpf}";
         $out .= ", whatsapp = {$this->whatsapp}, salario = {$this->salario}";
         return $out; 
     }
