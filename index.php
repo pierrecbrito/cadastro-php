@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./assets/css/formulario/formulario-campo.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-mensagem.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-botao.css">
+    <link rel="stylesheet" href="./assets/css/formulario/formulario-row.css">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
     <link href="./assets/fontawesome/css/all.css" rel="stylesheet">
@@ -25,36 +26,45 @@
         <h2 class="container__subtitulo">Todos os campos são obrigatórios!</h2>
    
         <form action="" class="formulario">
-            <div class="formulario__wrapper">
-                <label for="campo__nome" class="formulario__etiqueta">Nome:</label>
-                <input id="campo__nome" type="text" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+            <div class="formulario__row">
+                <div class="formulario__wrapper">
+                    <label for="campo__nome" class="formulario__etiqueta">Nome:</label>
+                    <input id="campo__nome" type="text" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+                <div class="formulario__wrapper">
+                    <label for="campo__email" class="formulario__etiqueta">Email:</label>
+                    <input id="campo__email" type="email" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
             </div>
-            <div class="formulario__wrapper">
-                <label for="campo__email" class="formulario__etiqueta">Email:</label>
-                <input id="campo__email" type="email" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
-                <input id="campo__cpf" type="email" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__whatsapp" class="formulario__etiqueta">Whatsapp:</label>
-                <input id="campo__whatsapp" type="text" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
-            <div class="formulario__wrapper">
-                <label for="campo__salario" class="formulario__etiqueta">Salário:</label>
-                <input id="campo__salario" type="text" class="formulario__campo">
-                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
-            </div>
+
             <div class="formulario__wrapper">
                 <label for="campo__nascimento" class="formulario__etiqueta">Data de Nascimento:</label>
                 <input id="campo__nascimento" type="text" class="formulario__campo">
                 <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
             </div>
+           
+            <div class="formulario__wrapper">
+                <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
+                <input id="campo__cpf" type="email" class="formulario__campo">
+                <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+            </div>
+
+            <div class="formulario__row">
+                <div class="formulario__wrapper">
+                    <label for="campo__whatsapp" class="formulario__etiqueta">Whatsapp:</label>
+                    <input id="campo__whatsapp" type="text" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+                <div class="formulario__wrapper">
+                    <label for="campo__salario" class="formulario__etiqueta">Salário:</label>
+                    <input id="campo__salario" type="text" class="formulario__campo">
+                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                </div>
+            </div>
+            
+          
             <div class="formulario__wrapper">
                 <label for="campo__cep" class="formulario__etiqueta">CEP:</label>
                 <input id="campo__cep" type="text" class="formulario__campo">

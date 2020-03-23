@@ -1,0 +1,12 @@
+.formulario__row {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.formulario__row .formulario__wrapper {
+    width: 49%;
+}
+
+
