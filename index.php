@@ -62,6 +62,7 @@ $sucesso = false;
     <link rel="stylesheet" href="./assets/css/formulario/formulario-botao.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-row.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-icone.css">
+    <link rel="stylesheet" href="./assets/css/formulario/link-cep.css">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
     <link href="./assets/fontawesome/css/all.css" rel="stylesheet">
@@ -153,7 +154,7 @@ $sucesso = false;
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__estado" class="formulario__etiqueta">Estado:</label>
-                    <input id="campo__estado" type="text" class="formulario__campo" readonly name="estado" value="<?= $_POST['estado'] ?? '' ?>">
+                    <input id="campo__estado" type="text" class="formulario__campo" name="estado" value="<?= $_POST['estado'] ?? '' ?>">
                     <?php if(isset($erros['estado'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['estado']?></div>
                     <?php endif ?>
@@ -164,7 +165,7 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__cidade" class="formulario__etiqueta">Cidade:</label>
-                    <input id="campo__cidade" type="text" class="formulario__campo" readonly name="cidade" value="<?= $_POST['cidade'] ?? '' ?>">
+                    <input id="campo__cidade" type="text" class="formulario__campo" name="cidade" value="<?= $_POST['cidade'] ?? '' ?>">
                     <?php if(isset($erros['cidade'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['cidade']?></div>
                     <?php endif ?>
@@ -172,7 +173,7 @@ $sucesso = false;
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__bairro" class="formulario__etiqueta">Bairro:</label>
-                    <input id="campo__bairro" type="text" class="formulario__campo" readonly name="bairro" value="<?= $_POST['bairro'] ?? '' ?>">
+                    <input id="campo__bairro" type="text" class="formulario__campo"  name="bairro" value="<?= $_POST['bairro'] ?? '' ?>">
                     <?php if(isset($erros['bairro'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['bairro']?></div>
                     <?php endif ?>
@@ -183,7 +184,7 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__rua" class="formulario__etiqueta">Rua:</label>
-                    <input id="campo__rua" type="text" class="formulario__campo" readonly name="rua" value="<?= $_POST['rua'] ?? '' ?>">
+                    <input id="campo__rua" type="text" class="formulario__campo" name="rua" value="<?= $_POST['rua'] ?? '' ?>">
                     <?php if(isset($erros['rua'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['rua']?></div>
                     <?php endif ?>
@@ -203,30 +204,9 @@ $sucesso = false;
 
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/jquery.mask.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#campo__cpf').mask('000.000.000-00', {reverse: true});
-            $('#campo__whatsapp').mask('(00) 00000-0000');
-            $('#campo__salario').mask('000000000,00', {reverse: true});
-            $('#campo__nascimento').mask('00/00/0000');
-            $('#campo__cep').mask('00000-000');
-        });
-    </script>
+    <script src="./assets/js/mascaras.js"></script>
     <script src="./assets/js/jquery-viacep.js"></script>
-    <script>
-
-        $('#campo__cep').autocompleteAddress({
-            city: '#campo__cidade',
-            address: '#campo__rua',
-            neighborhood: '#campo__bairro',
-            state: '#campo__estado',
-            publicAPI: 'https://viacep.com.br/ws/{{cep}}/json/',
-        });
-
-        $('#link__cep').on('click', e  => {
-            window.open('http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm', 'janela', 'width=840, height=600, top=100, left=699');
-        })
-      
-    </script>
+    <script src="./assets/js/autocomplete.js"></script>
+    <script src="./assets/js/link-cep.js"></script>
 </body>
 </html>

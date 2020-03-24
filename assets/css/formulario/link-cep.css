@@ -1,0 +1,10 @@
+#link__cep {
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: 0.5s;
+}
+
+#link__cep:hover {
+    color: #1976D2;
+    text-decoration: underline;
+}
