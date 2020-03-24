@@ -20,18 +20,16 @@ class PessoaFactory {
 
         if(filter_input(INPUT_POST, 'nascimento') ) {
             $data = DateTime::createFromFormat('d/m/Y', $_POST['nascimento']);
-
-            if(!$data) {
-                $erros['nascimento'] = 'Atenção a data! O formato deve ser d/m/a.';
-            }
+        } else {
+            $erros['nascimento'] = 'Atenção a data! O formato deve ser d/m/a.';
         }
 
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             $erros['email'] = 'E-mail inválido!';
         }    
 
-        if(!filter_input(INPUT_POST, 'cpf')) {
-            $erros['cpf'] = 'O CPF não foi informado!';
+        if(!filter_input(INPUT_POST, 'cpf') || !static::validaCPF($_POST['cpf'])) {
+            $erros['cpf'] = 'O CPF não é válido!';
         }
 
         if(!filter_input(INPUT_POST, 'whatsapp')) {
@@ -46,10 +44,8 @@ class PessoaFactory {
         }
 
         if(count($erros) > 0) {
-            echo "OPAA";
             return $erros;
         }  else {
-            echo "opaa2";
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $nascimento = $data;
@@ -57,9 +53,37 @@ class PessoaFactory {
             $whatsapp = $_POST['whatsapp'];
             $salario = $_POST['salario'];
             $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario);
-            echo $pessoa;
             return $pessoa;
         }
+    }
+
+    private static function validaCPF($cpf) {
+ 
+        // Extrai somente os números
+        $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
+         
+        // Verifica se foi informado todos os digitos corretamente
+        if (strlen($cpf) != 11) {
+            return false;
+        }
+    
+        // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+        if (preg_match('/(\d)\1{10}/', $cpf)) {
+            return false;
+        }
+    
+        // Faz o calculo para validar o CPF
+        for ($t = 9; $t < 11; $t++) {
+            for ($d = 0, $c = 0; $c < $t; $c++) {
+                $d += $cpf{$c} * (($t + 1) - $c);
+            }
+            $d = ((10 * $d) % 11) % 10;
+            if ($cpf{$c} != $d) {
+                return false;
+            }
+        }
+        return true;
+    
     }
 
 }

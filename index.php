@@ -34,6 +34,7 @@ $pessoa = null;
     <link rel="stylesheet" href="./assets/css/formulario/formulario-mensagem.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-botao.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-row.css">
+    <link rel="stylesheet" href="./assets/css/formulario/formulario-icone.css">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
     <link href="./assets/fontawesome/css/all.css" rel="stylesheet">
@@ -50,14 +51,14 @@ $pessoa = null;
                     <input id="campo__nome" type="text" class="formulario__campo" name="nome" value="<?= $_POST['nome'] ?? '' ?>">
                     
                     <?php if(isset($erros['nome'])): ?>
-                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['nome']?></div>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['nome']?></div>
                     <?php endif ?>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__email" class="formulario__etiqueta">Email:</label>
                     <input id="campo__email" type="email" class="formulario__campo" name="email" value="<?= $_POST['email'] ?? '' ?>">
                     <?php if(isset($erros['email'])): ?>
-                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['email']?></div>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['email']?></div>
                     <?php endif ?>
                 </div>
             </div>
@@ -68,7 +69,7 @@ $pessoa = null;
                     <input id="campo__nascimento" type="text" class="formulario__campo" name="nascimento" value="<?= $_POST['nascimento'] ?? '' ?>">
                 
                     <?php if(isset($erros['nascimento'])): ?>
-                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['nascimento']?></div>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['nascimento']?></div>
                     <?php endif ?>
                 </div>
             
@@ -76,7 +77,7 @@ $pessoa = null;
                     <label for="campo__cpf" class="formulario__etiqueta">CPF:</label>
                     <input id="campo__cpf" type="text" class="formulario__campo" name="cpf" value="<?= $_POST['cpf'] ?? '' ?>">
                     <?php if(isset($erros['cpf'])): ?>
-                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['cpf']?></div>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['cpf']?></div>
                     <?php endif ?>
                 </div>
             </div>
@@ -87,7 +88,7 @@ $pessoa = null;
                     <input id="campo__whatsapp" type="text" class="formulario__campo" name="whatsapp" value="<?= $_POST['whatsapp'] ?? '' ?>">
 
                     <?php if(isset($erros['whatsapp'])): ?>
-                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['whatsapp']?></div>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['whatsapp']?></div>
                     <?php endif ?>
                 </div>
                 <div class="formulario__wrapper">
@@ -95,7 +96,7 @@ $pessoa = null;
                     <input id="campo__salario" type="text" class="formulario__campo" name="salario" value="<?= $_POST['salario'] ?? '' ?>">
 
                     <?php if(isset($erros['salario'])): ?>
-                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i><?= $erros['salario']?></div>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['salario']?></div>
                     <?php endif ?>
                 </div>
             </div>
