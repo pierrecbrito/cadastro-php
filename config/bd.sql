@@ -8,6 +8,7 @@ CREATE TABLE pessoa (
     email VARCHAR(100) NOT NULL,
     cpf CHAR(14) NOT NULL,
     data_nascimento DATE NOT NULL,
-    whatsapp CHAR(14) NOT NULL, 
-    salario DECIMAL(15, 2) NOT NULL
+    whatsapp VARCHAR(20) NOT NULL, 
+    salario DECIMAL(5, 2) NOT NULL
 );
+
