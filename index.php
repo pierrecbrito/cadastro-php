@@ -37,7 +37,7 @@ $sucesso = false;
     <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/container.css">
-    <link rel="stylesheet" href="./assets/css/container/titulo.css">
+    <link rel="stylesheet" href="./assets/css/container/container-titulo.css">
     <link rel="stylesheet" href="./assets/css/container/container-subtitulo.css">
     <link rel="stylesheet" href="./assets/css/container/container-mensagem-sucesso.css">
     <link rel="stylesheet" href="./assets/css/formulario.css">
@@ -131,6 +131,7 @@ $sucesso = false;
                 <div class="formulario__wrapper">
                     <label for="campo__cep" class="formulario__etiqueta">CEP:</label>
                     <input id="campo__cep" type="text" class="formulario__campo">
+                    <a id="link__cep">Pesquisar endereço</a>
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
                 <div class="formulario__wrapper">
@@ -191,6 +192,11 @@ $sucesso = false;
             state: '#campo__estado',
             publicAPI: 'https://viacep.com.br/ws/{{cep}}/json/',
         });
+
+        $('#link__cep').on('click', e  => {
+            window.open('http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm', 'janela', 'width=840, height=600, top=100, left=699');
+        })
+      
     </script>
 </body>
 </html>
