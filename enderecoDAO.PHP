@@ -10,7 +10,6 @@ class EnderecoDAO {
     }
 
     public function insert($endereco) {
-        echo "INSERT DO DENDERO SENDO CHAMADO!!!!";
         $stmt = $this->conn->prepare(static::$SQL_INSERT);
         $stmt->bindValue(':cep', $endereco->cep, PDO::PARAM_STR);
         $stmt->bindValue(':estado', $endereco->estado, PDO::PARAM_STR);

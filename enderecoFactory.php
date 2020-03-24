@@ -9,7 +9,7 @@ class EnderecoFactory {
     public static function buildEndereco() {
         $erros = [];
 
-        if(!filter_input(INPUT_POST, 'cep')) {
+        if(!filter_input(INPUT_POST, 'cep') || strlen($_POST['cep']) != 9) {
             $erros['cep'] = 'O CEP está inválido!';
         }
 
@@ -46,5 +46,17 @@ class EnderecoFactory {
             $endereco = new Endereco($cep, $estado, $cidade, $bairro, $rua, $numero);
             return $endereco;
         }
+    }
+
+    // verifica se um esta esta de escrito de forma correta
+    private static function validarCep($cep) {
+        echo $cep;
+        // retira espacos em branco
+        $cep = trim($cep);
+        // expressao regular para avaliar o cep
+        $avaliaCep = ereg("^[0-9]{5}-[0-9]{3}$", $cep);
+        
+        // verifica o resultado
+        return $avaliaCep;
     }
 }
