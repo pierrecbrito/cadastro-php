@@ -3,24 +3,30 @@
 class EnderecoDAO {
     private $conn;
     private static $SQL_INSERT = "INSERT INTO endereco (cep, estado, cidade, bairro, rua, numero) 
-                                VALUES (:nome, :email, :cpf, :data, :whatsapp, :salario)";
+                                VALUES (:cep, :estado, :cidade, :bairro, :rua, :numero)";
 
     public function __construct() {
         $this->conn = ConnectionFactory::getConnection();
     }
 
-    public function insert($pessoa) {
+    public function insert($endereco) {
+        echo "INSERT DO DENDERO SENDO CHAMADO!!!!";
         $stmt = $this->conn->prepare(static::$SQL_INSERT);
-        $stmt->bindValue(':nome', $pessoa->nome, PDO::PARAM_STR);
-        $stmt->bindValue(':email', $pessoa->email, PDO::PARAM_STR);
-        $stmt->bindValue(':cpf', $pessoa->cpf, PDO::PARAM_STR);
-        $stmt->bindValue(':data', $pessoa->nascimento, PDO::PARAM_STR);
-        $stmt->bindValue(':whatsapp', $pessoa->whatsapp, PDO::PARAM_STR);
-        $stmt->bindValue(':salario', $pessoa->salario, PDO::PARAM_STR);
+        $stmt->bindValue(':cep', $endereco->cep, PDO::PARAM_STR);
+        $stmt->bindValue(':estado', $endereco->estado, PDO::PARAM_STR);
+        $stmt->bindValue(':cidade', $endereco->cidade, PDO::PARAM_STR);
+        $stmt->bindValue(':bairro', $endereco->bairro, PDO::PARAM_STR);
+        $stmt->bindValue(':rua', $endereco->rua, PDO::PARAM_STR);
+        $stmt->bindValue(':numero', $endereco->numero, PDO::PARAM_INT);
 
         if($stmt->execute()) {
+            $id = $this->conn->lastInsertId();
+            echo "Novo ID: $id <br>";
+            $endereco->id = $id;
             return true;
         } else {
+            echo "AAAAAAAAAA";
+            
             return $stmt->errorInfo();
         }
     }

@@ -1,6 +1,7 @@
 <?php
 require_once 'config/config.php';
 require_once 'pessoaDAO.php';
+require_once 'enderecoDAO.php';
 
 $erros = [];
 $pessoa = null;
@@ -12,17 +13,28 @@ $sucesso = false;
 
         if(is_array($processo)) {
             $erros = $processo;
-        }
-            
-        else {
+        } else {
             $pessoa = $processo;      
-            $dao = new PessoaDAO();
+            $daoPessoa = new PessoaDAO();
+            $daoEndereco = new EnderecoDAO();
+            
+            $insertEndereco = $daoEndereco->insert($pessoa->endereco);
+            $insertPessoa = $daoPessoa->insert($pessoa);
 
-            $sucesso = $dao->insert($pessoa);
-            if(is_array($sucesso)) {
-                print_r($sucesso);
-                $erros['erro_banco'] = "Erro na inserção do banco! ({$sucesso[2]})";
+            echo $pessoa->endereco;
+
+            if(is_array($insertPessoa)) {
+                $erros['erro_banco'] = "Erro na inserção do banco! ({$insertPessoa[2]})";
                 $sucesso = false;
+            } 
+            
+            if(is_array($insertEndereco)) {
+                $erros['erro_banco_endereco'] = "Erro na inserção do banco! ({$insertEndereco[2]})";
+                $sucesso = false;
+            } 
+            
+            if(!is_array($insertEndereco) && !is_array($insertPessoa)){
+                $sucesso =  true;
             }
                 
         }       
@@ -66,9 +78,10 @@ $sucesso = false;
             </div>
         <?php endif ?>
 
-        <?php if(isset($erros['erro_banco'])): ?>
+        <?php if(isset($erros['erro_banco']) || isset($erros['erro_banco_endereco'])): ?>
             <div class="container__mensagem__erro">
-                <?= $erros['erro_banco'];?>
+                <?= $erros['erro_banco'] ?? '';?>
+                <?= $erros['erro_banco_endereco'] ?? '';?>
             </div>
         <?php endif ?>
 
