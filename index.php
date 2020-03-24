@@ -1,5 +1,5 @@
 <?php
-require_once 'condig/config.php';
+require_once 'config/config.php';
 
 $erros = [];
 $pessoa = null;

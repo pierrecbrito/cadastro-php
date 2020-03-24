@@ -6,8 +6,26 @@
     align-items: flex-start;
 }
 
-.formulario__row .formulario__wrapper {
-    width: 49%;
+
+@media screen and (min-width: 0) {
+    .formulario__row {
+        flex-direction: column;
+    }
+
+    .formulario__row .formulario__wrapper {
+        width: 100%;
+    }
 }
+
+@media screen and (min-width: 768px) {
+    .formulario__row {
+        flex-direction: row;
+    }
+
+    .formulario__row .formulario__wrapper {
+        width: 49%;
+    }
+}
+
 
 
