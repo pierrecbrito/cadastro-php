@@ -130,13 +130,13 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__cep" class="formulario__etiqueta">CEP:</label>
-                    <input id="campo__cep" type="text" class="formulario__campo">
+                    <input id="campo__cep" type="text" class="formulario__campo" name="cep">
                     <a id="link__cep">Pesquisar endereço</a>
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__estado" class="formulario__etiqueta">Estado:</label>
-                    <input id="campo__estado" type="text" class="formulario__campo" disabled>
+                    <input id="campo__estado" type="text" class="formulario__campo" disabled name="estado">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             </div>
@@ -144,12 +144,12 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__cidade" class="formulario__etiqueta">Cidade:</label>
-                    <input id="campo__cidade" type="text" class="formulario__campo" disabled>
+                    <input id="campo__cidade" type="text" class="formulario__campo" disabled name="cidade">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__bairro" class="formulario__etiqueta">Bairro:</label>
-                    <input id="campo__bairro" type="text" class="formulario__campo" disabled>
+                    <input id="campo__bairro" type="text" class="formulario__campo" disabled name="bairro">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             </div>
@@ -157,12 +157,12 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__rua" class="formulario__etiqueta">Rua:</label>
-                    <input id="campo__rua" type="text" class="formulario__campo" disabled>
+                    <input id="campo__rua" type="text" class="formulario__campo" disabled name="rua">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__numero" class="formulario__etiqueta">Número:</label>
-                    <input id="campo__numero" type="number" class="formulario__campo">
+                    <input id="campo__numero" type="number" class="formulario__campo" name="numero">
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             </div>
