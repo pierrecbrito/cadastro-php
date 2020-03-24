@@ -26,7 +26,8 @@ $pessoa = null;
     <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/container.css">
-    <link rel="stylesheet" href="./assets/css/container-subtitulo.css">
+    <link rel="stylesheet" href="./assets/css/container/titulo.css">
+    <link rel="stylesheet" href="./assets/css/container/container-subtitulo.css">
     <link rel="stylesheet" href="./assets/css/formulario.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-wrapper.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-etiqueta.css">
