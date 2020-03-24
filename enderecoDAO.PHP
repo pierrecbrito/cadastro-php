@@ -21,12 +21,9 @@ class EnderecoDAO {
 
         if($stmt->execute()) {
             $id = $this->conn->lastInsertId();
-            echo "Novo ID: $id <br>";
             $endereco->id = $id;
             return true;
         } else {
-            echo "AAAAAAAAAA";
-            
             return $stmt->errorInfo();
         }
     }
