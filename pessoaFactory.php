@@ -47,7 +47,8 @@ class PessoaFactory {
         $endereco = EnderecoFactory::buildEndereco();
 
         if(is_array($endereco)) {//Erro
-            array_push($erros, ...$endereco);
+            foreach($endereco as $key => $value)
+                $erros[$key] = $value;
         }
 
         if(count($erros) > 0) {

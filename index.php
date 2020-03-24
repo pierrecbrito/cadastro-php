@@ -10,10 +10,12 @@ $sucesso = false;
         require_once 'pessoaFactory.php';
         $processo = PessoaFactory::buildPessoa();
 
-        if(is_array($processo)) 
+        if(is_array($processo)) {
             $erros = $processo;
+        }
+            
         else {
-            $pessoa = $processo;
+            $pessoa = $processo;      
             $dao = new PessoaDAO();
 
             $sucesso = $dao->insert($pessoa);
@@ -130,40 +132,55 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__cep" class="formulario__etiqueta">CEP:</label>
-                    <input id="campo__cep" type="text" class="formulario__campo" name="cep">
+                    <input id="campo__cep" type="text" class="formulario__campo" name="cep" value="<?= $_POST['cep'] ?? '' ?>">
                     <a id="link__cep">Pesquisar endereço</a>
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <?php if(isset($erros['cep'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['cep']?></div>
+                    <?php endif ?>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__estado" class="formulario__etiqueta">Estado:</label>
-                    <input id="campo__estado" type="text" class="formulario__campo" disabled name="estado">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <input id="campo__estado" type="text" class="formulario__campo" readonly name="estado" value="<?= $_POST['estado'] ?? '' ?>">
+                    <?php if(isset($erros['estado'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['estado']?></div>
+                    <?php endif ?>
+                    
                 </div>
             </div>
 
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__cidade" class="formulario__etiqueta">Cidade:</label>
-                    <input id="campo__cidade" type="text" class="formulario__campo" disabled name="cidade">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <input id="campo__cidade" type="text" class="formulario__campo" readonly name="cidade" value="<?= $_POST['cidade'] ?? '' ?>">
+                    <?php if(isset($erros['cidade'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['cidade']?></div>
+                    <?php endif ?>
+
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__bairro" class="formulario__etiqueta">Bairro:</label>
-                    <input id="campo__bairro" type="text" class="formulario__campo" disabled name="bairro">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <input id="campo__bairro" type="text" class="formulario__campo" readonly name="bairro" value="<?= $_POST['bairro'] ?? '' ?>">
+                    <?php if(isset($erros['bairro'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['bairro']?></div>
+                    <?php endif ?>
+                   
                 </div>
             </div>
             
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__rua" class="formulario__etiqueta">Rua:</label>
-                    <input id="campo__rua" type="text" class="formulario__campo" disabled name="rua">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <input id="campo__rua" type="text" class="formulario__campo" readonly name="rua" value="<?= $_POST['rua'] ?? '' ?>">
+                    <?php if(isset($erros['rua'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['rua']?></div>
+                    <?php endif ?>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__numero" class="formulario__etiqueta">Número:</label>
-                    <input id="campo__numero" type="number" class="formulario__campo" name="numero">
-                    <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
+                    <input id="campo__numero" type="number" class="formulario__campo" name="numero" value="<?= $_POST['numero'] ?? '' ?>">
+                    <?php if(isset($erros['numero'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['numero']?></div>
+                    <?php endif ?>
                 </div>
             </div>
             

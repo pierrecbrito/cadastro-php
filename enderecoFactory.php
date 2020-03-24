@@ -30,7 +30,7 @@ class EnderecoFactory {
         }
 
         $numeroConfig = ["options" => ["min_range" => 0]];
-        if(!filter_var($_POST['numero'], FILTER_VALIDATE_INT, $numeroConfig) && $_POST['numero'] != 0) {
+        if(!filter_var($_POST['numero'], FILTER_VALIDATE_INT, $numeroConfig) || empty($_POST['numero'])) {
             $erros['numero'] = 'Número da casa inválido!';
         }
 
