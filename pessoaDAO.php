@@ -24,9 +24,7 @@ class PessoaDAO {
         if($stmt->execute()) {
             return true;
         } else {
-            echo "Código: " . $stmt->errorCode();
-            print_r($stmt->errorInfo());
-            return false;
+            return $stmt->errorInfo();
         }
     }
 }

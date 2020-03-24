@@ -1,0 +1,15 @@
+.container__mensagem__sucesso {
+    padding: 1em 0.5em;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+}
+
+.container__mensagem__nome {
+    font-weight: bold;
+}
+
+.container__mensagem__erro {
+    padding: 1em 0.5em;
+    background-color: #FF0000;
+    color: #FFFFFF;
+}

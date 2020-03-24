@@ -1,18 +1,29 @@
 <?php
 require_once 'config/config.php';
+require_once 'pessoaDAO.php';
 
 $erros = [];
 $pessoa = null;
+$sucesso = false;
 
     if(count($_POST) > 0) {
         require_once 'pessoaFactory.php';
-
         $processo = PessoaFactory::buildPessoa();
 
         if(is_array($processo)) 
             $erros = $processo;
-        else
+        else {
             $pessoa = $processo;
+            $dao = new PessoaDAO();
+
+            $sucesso = $dao->insert($pessoa);
+            if(is_array($sucesso)) {
+                print_r($sucesso);
+                $erros['erro_banco'] = "Erro na inserção do banco! ({$sucesso[2]})";
+                $sucesso = false;
+            }
+                
+        }       
 
     }
 ?>
@@ -28,6 +39,7 @@ $pessoa = null;
     <link rel="stylesheet" href="./assets/css/container.css">
     <link rel="stylesheet" href="./assets/css/container/titulo.css">
     <link rel="stylesheet" href="./assets/css/container/container-subtitulo.css">
+    <link rel="stylesheet" href="./assets/css/container/container-mensagem-sucesso.css">
     <link rel="stylesheet" href="./assets/css/formulario.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-wrapper.css">
     <link rel="stylesheet" href="./assets/css/formulario/formulario-etiqueta.css">
@@ -44,7 +56,20 @@ $pessoa = null;
     <main class="container">
         <h1 class="container__titulo">Cadastro Simples com PHP</h1>
         <h2 class="container__subtitulo">Todos os campos são obrigatórios!</h2>
-   
+
+        <?php if($sucesso): ?>
+            <div class="container__mensagem__sucesso">
+                Os dados de <span class="container__mensagem__nome"><?= $pessoa->nome ?> </span> foram salvos com sucesso!
+                <?php $_POST = []; ?>
+            </div>
+        <?php endif ?>
+
+        <?php if(isset($erros['erro_banco'])): ?>
+            <div class="container__mensagem__erro">
+                <?= $erros['erro_banco'];?>
+            </div>
+        <?php endif ?>
+
         <form action="#" method="POST" class="formulario">
             <div class="formulario__row">
                 <div class="formulario__wrapper">
