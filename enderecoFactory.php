@@ -48,15 +48,4 @@ class EnderecoFactory {
         }
     }
 
-    // verifica se um esta esta de escrito de forma correta
-    private static function validarCep($cep) {
-        echo $cep;
-        // retira espacos em branco
-        $cep = trim($cep);
-        // expressao regular para avaliar o cep
-        $avaliaCep = ereg("^[0-9]{5}-[0-9]{3}$", $cep);
-        
-        // verifica o resultado
-        return $avaliaCep;
-    }
 }
