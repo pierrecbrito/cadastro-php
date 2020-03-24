@@ -55,7 +55,7 @@ $sucesso = false;
 <body>
     <main class="container">
         <h1 class="container__titulo">Cadastro Simples com PHP</h1>
-        <h2 class="container__subtitulo">Todos os campos são obrigatórios!</h2>
+        <h2 class="container__subtitulo">Todos os campos são obrigatórios! Só precisa do CEP no endereço.</h2>
 
         <?php if($sucesso): ?>
             <div class="container__mensagem__sucesso">
@@ -135,10 +135,7 @@ $sucesso = false;
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__estado" class="formulario__etiqueta">Estado:</label>
-                    <select name="" id="campo__estado" class="formulario__campo">
-                        <option value="1">RN</option>
-                        <option value="2">Brasília</option>
-                    </select>
+                    <input id="campo__estado" type="text" class="formulario__campo" disabled>
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             </div>
@@ -146,18 +143,12 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__cidade" class="formulario__etiqueta">Cidade:</label>
-                    <select name="" id="campo__cidade" class="formulario__campo">
-                        <option value="1">RN</option>
-                        <option value="2">Brasília</option>
-                    </select>
+                    <input id="campo__cidade" type="text" class="formulario__campo" disabled>
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__bairro" class="formulario__etiqueta">Bairro:</label>
-                    <select name="" id="campo__bairro" class="formulario__campo" disable='true'>
-                        <option value="1">RN</option>
-                        <option value="2">Brasília</option>
-                    </select>
+                    <input id="campo__bairro" type="text" class="formulario__campo" disabled>
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
             </div>
@@ -165,7 +156,7 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__rua" class="formulario__etiqueta">Rua:</label>
-                    <input id="campo__rua" type="text" class="formulario__campo">
+                    <input id="campo__rua" type="text" class="formulario__campo" disabled>
                     <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle"></i> Campo está vazio!</div>
                 </div>
                 <div class="formulario__wrapper">
@@ -188,6 +179,17 @@ $sucesso = false;
             $('#campo__salario').mask('000000000,00', {reverse: true});
             $('#campo__nascimento').mask('00/00/0000');
             $('#campo__cep').mask('00000-000');
+        });
+    </script>
+    <script src="./assets/js/jquery-viacep.js"></script>
+    <script>
+
+        $('#campo__cep').autocompleteAddress({
+            city: '#campo__cidade',
+            address: '#campo__rua',
+            neighborhood: '#campo__bairro',
+            state: '#campo__estado',
+            publicAPI: 'https://viacep.com.br/ws/{{cep}}/json/',
         });
     </script>
 </body>

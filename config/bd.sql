@@ -9,6 +9,19 @@ CREATE TABLE pessoa (
     cpf CHAR(14) NOT NULL UNIQUE,
     data_nascimento DATE NOT NULL,
     whatsapp VARCHAR(20) NOT NULL, 
-    salario DECIMAL(8, 2) NOT NULL
+    salario DECIMAL(8, 2) NOT NULL,
+    id_endereco INT NOT NULL,
+    
+    FOREIGN KEY (id_endereco) REFERENCES endereco(id)
+);
+
+CREATE TABLE endereco (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    cep CHAR(9) NOT NULL,
+    estado CHAR(2) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    rua VARCHAR(120) NOT NULL,
+    numero SMALLINT NOT NULL
 );
 
