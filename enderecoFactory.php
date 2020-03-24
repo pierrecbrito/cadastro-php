@@ -1,5 +1,6 @@
 
 <?php
+require_once 'endereco.php';
 
 class EnderecoFactory {
 /**
@@ -7,47 +8,43 @@ class EnderecoFactory {
      */
     public static function buildEndereco() {
         $erros = [];
-        $data = null;
 
         if(!filter_input(INPUT_POST, 'cep')) {
-            $erros['nome'] = 'O nome é obrigatório!';
+            $erros['cep'] = 'O CEP está inválido!';
         }
 
-        if(filter_input(INPUT_POST, 'nascimento') ) {
-            $data = DateTime::createFromFormat('d/m/Y', $_POST['nascimento']);
-        } else {
-            $erros['nascimento'] = 'Atenção a data! O formato deve ser d/m/a.';
+        if(!filter_input(INPUT_POST, 'estado')) {
+            $erros['estado'] = 'O Estado está inválido!';
         }
 
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $erros['email'] = 'E-mail inválido!';
-        }    
-
-        if(!filter_input(INPUT_POST, 'cpf') || !static::validaCPF($_POST['cpf'])) {
-            $erros['cpf'] = 'O CPF não é válido!';
+        if(!filter_input(INPUT_POST, 'cidade')) {
+            $erros['cidade'] = 'A cidade está inválida!';
         }
 
-        if(!filter_input(INPUT_POST, 'whatsapp')) {
-            $erros['whatsapp'] = 'O Whatsapp não foi informado!';
+        if(!filter_input(INPUT_POST, 'bairro')) {
+            $erros['bairro'] = 'O bairro está inválido!';
         }
 
-        $salarioConfig = ['options' => ['decimal' => ',']];
-        if(!isset($_POST['salario'])){
-            $erros['salario'] = 'Valor do salário não foi passado!';
-        } elseif(!filter_var($_POST['salario'], FILTER_VALIDATE_FLOAT, $salarioConfig)) {
-            $erros['salario'] = 'Valor do salário inválido!';
+        if(!filter_input(INPUT_POST, 'rua')) {
+            $erros['rua'] = 'A rua está inválida!';
+        }
+
+        $numeroConfig = ["options" => ["min_range" => 0]];
+        if(!filter_var($_POST['numero'], FILTER_VALIDATE_INT, $numeroConfig) && $_POST['numero'] != 0) {
+            $erros['numero'] = 'Número da casa inválido!';
         }
 
         if(count($erros) > 0) {
             return $erros;
         }  else {
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $nascimento = $data;
-            $cpf = $_POST['cpf'];
-            $whatsapp = $_POST['whatsapp'];
-            $salario = $_POST['salario'];
-            $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario);
-            return $pessoa;
+            $cep = $_POST['cep'];
+            $estado = $_POST['estado'];
+            $cidade = $_POST['cidade'];
+            $bairro = $_POST['bairro'];
+            $rua = $_POST['rua'];
+            $numero = $_POST['numero'];
+            $endereco = new Endereco($cep, $estado, $cidade, $bairro, $rua, $numero);
+            return $endereco;
         }
     }
+}
