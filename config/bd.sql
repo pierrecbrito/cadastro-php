@@ -9,6 +9,6 @@ CREATE TABLE pessoa (
     cpf CHAR(14) NOT NULL UNIQUE,
     data_nascimento DATE NOT NULL,
     whatsapp VARCHAR(20) NOT NULL, 
-    salario DECIMAL(3, 2) NOT NULL
+    salario DECIMAL(8, 2) NOT NULL
 );
 
