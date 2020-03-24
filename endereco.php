@@ -18,5 +18,10 @@ class Endereco {
         $this->numero = $numero;
     }
 
-    
+    public function __toString() {
+        $out = "Endereco {cep = {$this->cep}, estado = {$this->estado}}";
+        $out .= ", cidade = {$this->cidade}, bairro = {$this->bairro}";
+        $out .= ", rua = {$this->rua}, numero = {$this->numero}";
+        return $out; 
+    }
 }

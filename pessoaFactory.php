@@ -1,6 +1,7 @@
 <?php
 require_once 'config/config.php';
 require_once 'pessoa.php' ;
+require_once 'enderecoFactory.php';
 
 /**
  *  Classe responsável pela validação e construção de uma pessoa
@@ -43,6 +44,12 @@ class PessoaFactory {
             $erros['salario'] = 'Valor do salário inválido!';
         }
 
+        $endereco = EnderecoFactory::buildEndereco();
+
+        if(is_array($endereco)) {//Erro
+            array_push($erros, ...$endereco);
+        }
+
         if(count($erros) > 0) {
             return $erros;
         }  else {
@@ -52,7 +59,7 @@ class PessoaFactory {
             $cpf = $_POST['cpf'];
             $whatsapp = $_POST['whatsapp'];
             $salario = $_POST['salario'];
-            $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario);
+            $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario, $endereco);
             return $pessoa;
         }
     }
