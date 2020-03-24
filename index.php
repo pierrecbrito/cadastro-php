@@ -154,7 +154,7 @@ $sucesso = false;
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__estado" class="formulario__etiqueta">Estado:</label>
-                    <input id="campo__estado" type="text" class="formulario__campo" name="estado" value="<?= $_POST['estado'] ?? '' ?>">
+                    <input id="campo__estado" type="text" class="formulario__campo" readonly name="estado" value="<?= $_POST['estado'] ?? '' ?>">
                     <?php if(isset($erros['estado'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['estado']?></div>
                     <?php endif ?>
@@ -165,7 +165,7 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__cidade" class="formulario__etiqueta">Cidade:</label>
-                    <input id="campo__cidade" type="text" class="formulario__campo" name="cidade" value="<?= $_POST['cidade'] ?? '' ?>">
+                    <input id="campo__cidade" type="text" class="formulario__campo" readonly name="cidade" value="<?= $_POST['cidade'] ?? '' ?>">
                     <?php if(isset($erros['cidade'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['cidade']?></div>
                     <?php endif ?>
@@ -173,7 +173,7 @@ $sucesso = false;
                 </div>
                 <div class="formulario__wrapper">
                     <label for="campo__bairro" class="formulario__etiqueta">Bairro:</label>
-                    <input id="campo__bairro" type="text" class="formulario__campo"  name="bairro" value="<?= $_POST['bairro'] ?? '' ?>">
+                    <input id="campo__bairro" type="text" class="formulario__campo" readonly name="bairro" value="<?= $_POST['bairro'] ?? '' ?>">
                     <?php if(isset($erros['bairro'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['bairro']?></div>
                     <?php endif ?>
@@ -184,7 +184,7 @@ $sucesso = false;
             <div class="formulario__row">
                 <div class="formulario__wrapper">
                     <label for="campo__rua" class="formulario__etiqueta">Rua:</label>
-                    <input id="campo__rua" type="text" class="formulario__campo" name="rua" value="<?= $_POST['rua'] ?? '' ?>">
+                    <input id="campo__rua" type="text" class="formulario__campo" readonly name="rua" value="<?= $_POST['rua'] ?? '' ?>">
                     <?php if(isset($erros['rua'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['rua']?></div>
                     <?php endif ?>

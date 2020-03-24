@@ -2,6 +2,16 @@ DROP DATABASE IF EXISTS cadastro_php;
 CREATE DATABASE cadastro_php;
 
 USE cadastro_php;
+CREATE TABLE endereco (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    cep CHAR(9) NOT NULL,
+    estado CHAR(2) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    rua VARCHAR(120) NOT NULL,
+    numero SMALLINT NOT NULL
+);
+
 CREATE TABLE pessoa (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(150) NOT NULL,
@@ -15,13 +25,5 @@ CREATE TABLE pessoa (
     FOREIGN KEY (id_endereco) REFERENCES endereco(id)
 );
 
-CREATE TABLE endereco (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    cep CHAR(9) NOT NULL,
-    estado CHAR(2) NOT NULL,
-    cidade VARCHAR(100) NOT NULL,
-    bairro VARCHAR(100) NOT NULL,
-    rua VARCHAR(120) NOT NULL,
-    numero SMALLINT NOT NULL
-);
+
 
