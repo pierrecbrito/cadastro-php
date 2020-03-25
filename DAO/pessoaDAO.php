@@ -5,6 +5,7 @@ class PessoaDAO {
     private $conn;
     private static $SQL_INSERT = "INSERT INTO pessoa (nome, email, cpf, data_nascimento, whatsapp, salario, id_endereco) 
                                 VALUES (:nome, :email, :cpf, :data, :whatsapp, :salario, :endereco)";
+    private static $SQL_SELECT_CPF = "SELECT cpf FROM pessoa WHERE cpf = :cpf";
 
     public function __construct() {
         $this->conn = ConnectionFactory::getConnection();
@@ -25,5 +26,13 @@ class PessoaDAO {
         } else {
             return $stmt->errorInfo();
         }
+    }
+
+    public function encontrarCPF($cpf) {
+        $stmt = $this->conn->prepare(static::$SQL_SELECT_CPF);
+        $stmt->bindValue(':cpf', $cpf, PDO::PARAM_STR);
+
+        $stmt->execute();
+        return count($stmt->fetchAll()) == 1;
     }
 }

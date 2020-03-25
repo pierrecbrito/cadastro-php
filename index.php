@@ -17,10 +17,10 @@ $sucesso = false;
             $pessoa = $processo;      
             $daoPessoa = new PessoaDAO();
             $daoEndereco = new EnderecoDAO();
-            
+
             $insertEndereco = $daoEndereco->insert($pessoa->endereco);
             $insertPessoa = $daoPessoa->insert($pessoa);
-
+            
             echo $pessoa->endereco;
 
             if(is_array($insertPessoa)) {

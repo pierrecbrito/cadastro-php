@@ -29,8 +29,11 @@ class PessoaFactory {
             $erros['email'] = 'E-mail inválido!';
         }    
 
+        $daoPessoa = new PessoaDAO();  
         if(!filter_input(INPUT_POST, 'cpf') || !static::validaCPF($_POST['cpf'])) {
             $erros['cpf'] = 'O CPF não é válido!';
+        } elseif($daoPessoa->encontrarCPF($_POST['cpf'])) {
+            $erros['cpf'] = 'O CPF já está cadastrado!';
         }
 
         if(!filter_input(INPUT_POST, 'whatsapp')) {

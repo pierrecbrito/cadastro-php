@@ -26,5 +26,6 @@ CREATE TABLE pessoa (
 		ON DELETE CASCADE
 );
 
+SELECT cpf FROM pessoa WHERE cpf = '701.987.474-62';
 
 
