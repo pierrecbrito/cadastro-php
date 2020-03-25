@@ -1,7 +1,6 @@
 <?php
 require_once 'config/config.php';
 require_once 'models/pessoa.php' ;
-require_once 'enderecoFactory.php';
 require_once 'DAO/pessoaDAO.php';
 
 /**
@@ -48,13 +47,6 @@ class PessoaFactory {
             $erros['salario'] = 'Valor do salário inválido!';
         }
 
-        $endereco = EnderecoFactory::buildEndereco();
-
-        if(is_array($endereco)) {//Erro
-            foreach($endereco as $key => $value)
-                $erros[$key] = $value;
-        }
-
         if(count($erros) > 0) {
             return $erros;
         }  else {
@@ -64,7 +56,7 @@ class PessoaFactory {
             $cpf = $_POST['cpf'];
             $whatsapp = $_POST['whatsapp'];
             $salario = $_POST['salario'];
-            $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario, $endereco);
+            $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario);
             return $pessoa;
         }
     }

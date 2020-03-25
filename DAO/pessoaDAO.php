@@ -3,8 +3,8 @@ require_once "config/config.php";
 
 class PessoaDAO {
     private $conn;
-    private static $SQL_INSERT = "INSERT INTO pessoa (nome, email, cpf, data_nascimento, whatsapp, salario, id_endereco) 
-                                VALUES (:nome, :email, :cpf, :data, :whatsapp, :salario, :endereco)";
+    private static $SQL_INSERT = "INSERT INTO pessoa (nome, email, cpf, data_nascimento, whatsapp, salario) 
+                                VALUES (:nome, :email, :cpf, :data, :whatsapp, :salario)";
     private static $SQL_SELECT_CPF = "SELECT cpf FROM pessoa WHERE cpf = :cpf";
 
     public function __construct() {
@@ -19,9 +19,10 @@ class PessoaDAO {
         $stmt->bindValue(':data', $pessoa->nascimento, PDO::PARAM_STR);
         $stmt->bindValue(':whatsapp', $pessoa->whatsapp, PDO::PARAM_STR);
         $stmt->bindValue(':salario', $pessoa->salario, PDO::PARAM_STR);
-        $stmt->bindValue(':endereco', $pessoa->endereco->id, PDO::PARAM_INT);
 
         if($stmt->execute()) {
+            $id = $this->conn->lastInsertId();
+            $pessoa->id = $id;
             return true;
         } else {
             return $stmt->errorInfo();

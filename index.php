@@ -8,21 +8,23 @@ $pessoa = null;
 $sucesso = false;
 
     if(count($_POST) > 0) {
-        require_once 'factory/pessoaFactory.php';
-        $processo = PessoaFactory::buildPessoa();
+        require_once 'factory/enderecoFactory.php';
+        $buildedEndereco = EnderecoFactory::buildEndereco();
 
-        if(is_array($processo)) {
-            $erros = $processo;
+        if(is_array($buildedEndereco)) {
+            $erros = $buildedEndereco;
         } else {
-            $pessoa = $processo;      
+            $endereco = $buildedEndereco;      
+            $pessoa = $endereco->pessoa;
+            
             $daoPessoa = new PessoaDAO();
             $daoEndereco = new EnderecoDAO();
 
-            $insertEndereco = $daoEndereco->insert($pessoa->endereco);
-            $insertPessoa = $daoPessoa->insert($pessoa);
-            
-            echo $pessoa->endereco;
+            $insertPessoa = $daoPessoa->insert($endereco->pessoa);
+            $insertEndereco = $daoEndereco->insert($endereco);      
 
+
+            $sucesso = true;
             if(is_array($insertPessoa)) {
                 $erros['erro_banco'] = "Erro na inserção do banco! ({$insertPessoa[2]})";
                 $sucesso = false;
@@ -32,10 +34,6 @@ $sucesso = false;
                 $erros['erro_banco_endereco'] = "Erro na inserção do banco! ({$insertEndereco[2]})";
                 $sucesso = false;
             } 
-            
-            if(!is_array($insertEndereco) && !is_array($insertPessoa)){
-                $sucesso =  true;
-            }
                 
         }       
 
@@ -82,6 +80,9 @@ $sucesso = false;
         <?php if(isset($erros['erro_banco']) || isset($erros['erro_banco_endereco'])): ?>
             <div class="container__mensagem__erro">
                 <?= $erros['erro_banco'] ?? '';?>
+                <?= $erros['erro_banco_endereco'] ?? '';?>
+            </div>
+            <div class="container__mensagem__erro">
                 <?= $erros['erro_banco_endereco'] ?? '';?>
             </div>
         <?php endif ?>

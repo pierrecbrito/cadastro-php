@@ -1,6 +1,7 @@
 
 <?php
 require_once 'models/endereco.php';
+require_once 'pessoaFactory.php';
 
 class EnderecoFactory {
 /**
@@ -34,6 +35,12 @@ class EnderecoFactory {
             $erros['numero'] = 'Número da casa inválido!';
         }
 
+        $pessoa = PessoaFactory::buildPessoa();
+        if(is_array($pessoa)) {//Erro
+            foreach($pessoa as $key => $value)
+                $erros[$key] = $value;
+        }
+
         if(count($erros) > 0) {
             return $erros;
         }  else {
@@ -43,7 +50,7 @@ class EnderecoFactory {
             $bairro = $_POST['bairro'];
             $rua = $_POST['rua'];
             $numero = $_POST['numero'];
-            $endereco = new Endereco($cep, $estado, $cidade, $bairro, $rua, $numero);
+            $endereco = new Endereco($cep, $estado, $cidade, $bairro, $rua, $numero, $pessoa);
             return $endereco;
         }
     }

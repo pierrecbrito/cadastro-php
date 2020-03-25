@@ -3,8 +3,8 @@ require_once 'config/conexao.php';
 
 class EnderecoDAO {
     private $conn;
-    private static $SQL_INSERT = "INSERT INTO endereco (cep, estado, cidade, bairro, rua, numero) 
-                                VALUES (:cep, :estado, :cidade, :bairro, :rua, :numero)";
+    private static $SQL_INSERT = "INSERT INTO endereco (cep, estado, cidade, bairro, rua, numero, id_pessoa) 
+                                VALUES (:cep, :estado, :cidade, :bairro, :rua, :numero, :pessoa)";
 
     public function __construct() {
         $this->conn = ConnectionFactory::getConnection();
@@ -18,10 +18,9 @@ class EnderecoDAO {
         $stmt->bindValue(':bairro', $endereco->bairro, PDO::PARAM_STR);
         $stmt->bindValue(':rua', $endereco->rua, PDO::PARAM_STR);
         $stmt->bindValue(':numero', $endereco->numero, PDO::PARAM_INT);
+        $stmt->bindValue(':pessoa', $endereco->pessoa->id, PDO::PARAM_INT);
 
         if($stmt->execute()) {
-            $id = $this->conn->lastInsertId();
-            $endereco->id = $id;
             return true;
         } else {
             return $stmt->errorInfo();
