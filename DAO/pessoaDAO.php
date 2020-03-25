@@ -1,7 +1,5 @@
 <?php
-require_once 'config/config.php';
-require_once 'conexao.php';
-require_once 'pessoa.php';
+require_once "config/config.php";
 
 class PessoaDAO {
     private $conn;

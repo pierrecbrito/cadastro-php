@@ -1,7 +1,7 @@
 <?php
-require_once 'config/config.php';
-require_once 'pessoaDAO.php';
-require_once 'enderecoDAO.php';
+require_once  'config/config.php';
+require_once 'DAO/pessoaDAO.php';
+require_once 'DAO/enderecoDAO.php';
 
 $erros = [];
 $pessoa = null;
