@@ -2,6 +2,7 @@
 require_once 'config/config.php';
 require_once 'models/pessoa.php' ;
 require_once 'enderecoFactory.php';
+require_once 'DAO/pessoaDAO.php';
 
 /**
  *  Classe responsável pela validação e construção de uma pessoa
