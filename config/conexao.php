@@ -7,7 +7,7 @@ class ConnectionFactory {
     public static function getConnection() {
 
         if(static::$con == null) {
-            $envPath = realpath(dirname(__FILE__) . '/config/env.ini');
+            $envPath = realpath(dirname(__FILE__) . '/env.ini');
             $env = parse_ini_file($envPath);
     
             try {

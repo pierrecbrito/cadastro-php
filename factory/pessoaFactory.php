@@ -1,6 +1,6 @@
 <?php
 require_once 'config/config.php';
-require_once 'pessoa.php' ;
+require_once 'models/pessoa.php' ;
 require_once 'enderecoFactory.php';
 
 /**

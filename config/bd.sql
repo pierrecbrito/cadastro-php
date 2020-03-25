@@ -23,6 +23,7 @@ CREATE TABLE pessoa (
     id_endereco INT NOT NULL,
     
     FOREIGN KEY (id_endereco) REFERENCES endereco(id)
+		ON DELETE CASCADE
 );
 
 

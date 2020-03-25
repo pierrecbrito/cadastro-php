@@ -1,6 +1,6 @@
 
 <?php
-require_once 'endereco.php';
+require_once 'models/endereco.php';
 
 class EnderecoFactory {
 /**

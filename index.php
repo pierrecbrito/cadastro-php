@@ -8,7 +8,7 @@ $pessoa = null;
 $sucesso = false;
 
     if(count($_POST) > 0) {
-        require_once 'pessoaFactory.php';
+        require_once 'factory/pessoaFactory.php';
         $processo = PessoaFactory::buildPessoa();
 
         if(is_array($processo)) {
