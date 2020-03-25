@@ -7,4 +7,4 @@ Projeto simples de cadastro com PHP
 - [x] Organizar classes Factory's e DAO'S
 - [ ] Impossibilitar cadastro de endereço de uma pessoa com CPF já cadastrado
  
- >Este projeto se orienta pela arquitetura MVC.
+ >Este projeto não se orienta pela arquitetura MVC.
