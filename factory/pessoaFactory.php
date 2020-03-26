@@ -47,16 +47,25 @@ class PessoaFactory {
             $erros['salario'] = 'Valor do salário inválido!';
         }
 
+        if(!filter_input(INPUT_POST, 'senha') || !filter_input(INPUT_POST, 'confirmar_senha')) {
+            $erros['senha'] = 'A senha está inválida!';
+        } else if($_POST['senha'] != $_POST['confirmar_senha']) {
+            $erros['senha'] = 'A senha e a confirmação não batem!';
+        } else if(strlen($_POST['senha']) < 8 ) {
+            $erros['senha'] = 'A senha deve ter mais de 8 dígitos!';
+        }
+
         if(count($erros) > 0) {
             return $erros;
-        }  else {
+        } else {
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $nascimento = $data;
             $cpf = $_POST['cpf'];
             $whatsapp = $_POST['whatsapp'];
             $salario = $_POST['salario'];
-            $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario);
+            $senha = $_POST['senha'];
+            $pessoa = new Pessoa($nome, $email, $nascimento, $cpf, $whatsapp, $salario, $senha);
             return $pessoa;
         }
     }
