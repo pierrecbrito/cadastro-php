@@ -143,6 +143,23 @@ $sucesso = false;
                     <?php endif ?>
                 </div>
             </div>
+
+            <div class="formulario__row">
+                <div class="formulario__wrapper">
+                    <label for="campo__senha" class="formulario__etiqueta">Senha:</label>
+                    <input id="campo__senha" type="password" class="formulario__campo" name="senha" value="<?= $_POST['senha'] ?? '' ?>">
+                    <?php if(isset($erros['senha'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['senha']?></div>
+                    <?php endif ?>
+                </div>
+                <div class="formulario__wrapper">
+                    <label for="campo__confirmar_senha" class="formulario__etiqueta">Confirmar Senha:</label>
+                    <input id="campo__cofirmar_senha" type="password" class="formulario__campo" name="confirmar_senha" value="<?= $_POST['confirmar_senha'] ?? '' ?>">
+                    <?php if(isset($erros['senha'])): ?>
+                        <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['senha']?></div>
+                    <?php endif ?>
+                </div>
+            </div>
             
             <div class="formulario__row">
                 <div class="formulario__wrapper">
@@ -159,7 +176,6 @@ $sucesso = false;
                     <?php if(isset($erros['estado'])): ?>
                         <div class="formulario__mensagem"><i class="fas fa-exclamation-triangle formulario__icone"></i><?= $erros['estado']?></div>
                     <?php endif ?>
-                    
                 </div>
             </div>
 
@@ -198,7 +214,7 @@ $sucesso = false;
                     <?php endif ?>
                 </div>
             </div>
-            
+
             <button class="formulario__botao">Salvar</button>
         </form>
     </main>
